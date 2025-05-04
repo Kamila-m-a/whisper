@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: whisper
+    plan: free
+    env: python
+    region: frankfurt
+
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y ffmpeg && \
+      pip install numpy==1.23.5 --prefer-binary && \
+      pip install -r requirements.txt
+
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000 --workers 1
+
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "true"
