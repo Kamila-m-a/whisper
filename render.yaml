@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: whisper
+    name: whisper-render
     plan: free
     env: python
     region: frankfurt
