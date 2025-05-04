@@ -3,7 +3,6 @@ services:
     name: whisper-render
     plan: free
     env: python
-    region: frankfurt
 
     buildCommand: |
       apt-get update && \
